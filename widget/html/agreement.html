@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>Document</title></head><body><script src="../script/rem.js"></script><script src="../script/api.js"></script><script src="../script/aui-slide.js"></script><script src="../script/vue.js"></script><script src="../script/swiper.min.js"></script><script src="../script/coi.js"></script><link rel="stylesheet" href="../css/style.css"/><link rel="stylesheet" href="../css/api.css"/><link rel="stylesheet" href="../css/aui-slide.css"/><link rel="stylesheet" href="../css/swiper.min.css"/><style>.intro{width:100%;padding:.3rem}p{font-size:.26rem;color:#3c3c3c;line-height:.42rem}img{max-width:100%;display:block;margin:.2rem 0}</style><div id="vm"><div class="header-o"> <div class="l" onclick="closeWin()" tapmode="tapmode"><img src="../image/jt.png"/></div><h1 id="headerTitle">用户协议</h1></div><div class="header-bottom"></div><script>function closeWin(){
+    api.closeWin();
+}
+
+function openWin(url){
+    api.openWin({
+        name: 'test',
+        url: url,
+        bgColor:'#ffffff',
+        pageParam: {
+            name: 'test'
+        }
+    });
+}</script><div class="intro" v-html="content_cat"></div></div><script>apiready=function(){$api.fixStatusBar($api.dom(".header-o"));new Vue({el:"#vm",data:{content_cat:""},created:function(){this.getData()},methods:{getData:function(){var t=this;$api.ajax("/api/index/user_agreement",{},function(a){200==a.code&&(t.content_cat=a.data.cat_content)})}}})},window.owin=$api.owin;</script></body></html>

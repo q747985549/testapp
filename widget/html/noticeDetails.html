@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>Document</title></head><body><script src="../script/rem.js"></script><script src="../script/api.js"></script><script src="../script/aui-slide.js"></script><script src="../script/vue.js"></script><script src="../script/swiper.min.js"></script><script src="../script/coi.js"></script><link rel="stylesheet" href="../css/style.css"/><link rel="stylesheet" href="../css/api.css"/><link rel="stylesheet" href="../css/aui-slide.css"/><link rel="stylesheet" href="../css/swiper.min.css"/><style>body,html{width:100%;height:100%;background:#fff}.details{width:100%;padding-bottom:.3rem}.details .title{width:100%;padding:.3rem 0;border-bottom:1px solid #e8e8e8}.details .title h2{font-size:.32rem;color:#333;font-weight:600}.details .title h5{font-size:.24rem;color:#999;margin-top:.1rem}.details .details-con p{margin-top:.3rem}.details .details-con img{display:block}.details .details-con img,.details .details-img{width:100%;margin-top:.3rem;border-radius:.1rem;overflow:hidden}.details .details-img img{width:100%;display:block}.details .details-text{margin-top:.3rem}.details .details-con p,.details .details-text p{font-size:.24rem;color:#999;line-height:.4rem}</style><div id="vm"><div class="header-o"> <div class="l" onclick="closeWin()" tapmode="tapmode"><img src="../image/jt.png"/></div><h1 id="headerTitle">公告详情</h1></div><div class="header-bottom"></div><script>function closeWin(){
+    api.closeWin();
+}
+
+function openWin(url){
+    api.openWin({
+        name: 'test',
+        url: url,
+        bgColor:'#ffffff',
+        pageParam: {
+            name: 'test'
+        }
+    });
+}</script><div class="details mg"><div class="title"><h2>{{details.name}}</h2><h5>{{details.created_time}}</h5></div><div class="details-con" v-html="details.content"></div></div></div><script>apiready=function(){$api.fixStatusBar($api.dom(".header-o"));new Vue({el:"#vm",data:{details:{}},created:function(){this.getData()},methods:{getData:function(){var i=this;$api.ajax("/api/index/noticeDetails",{id:api.pageParam.params.id},function(a){200==a.code&&(i.details=a.data)})}}})},window.owin=$api.owin;</script></body></html>

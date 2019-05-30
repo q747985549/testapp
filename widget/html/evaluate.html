@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>Document</title></head><body><script src="../script/rem.js"></script><script src="../script/api.js"></script><script src="../script/aui-slide.js"></script><script src="../script/vue.js"></script><script src="../script/swiper.min.js"></script><script src="../script/coi.js"></script><link rel="stylesheet" href="../css/style.css"/><link rel="stylesheet" href="../css/api.css"/><link rel="stylesheet" href="../css/aui-slide.css"/><link rel="stylesheet" href="../css/swiper.min.css"/><link rel="stylesheet" href="./components/evaluate/evaluate.less" inline="inline"/><div id="vm"><div class="header-o"> <div class="l" onclick="closeWin()" tapmode="tapmode"><img src="../image/jt.png"/></div><h1 id="headerTitle">全部评价</h1></div><div class="header-bottom"></div><script>function closeWin(){
+    api.closeWin();
+}
+
+function openWin(url){
+    api.openWin({
+        name: 'test',
+        url: url,
+        bgColor:'#ffffff',
+        pageParam: {
+            name: 'test'
+        }
+    });
+}</script></div><script>apiready=function(){$api.fixStatusBar($api.dom(".header-o"));var a=api.pageParam.params.id;api.openFrame({name:"evaluateContent",url:"./evaluateContent.html",rect:{x:0,y:$api.offset($api.dom(".header-bottom")).h+1,w:"auto",h:"auto"},pageParam:{id:a},bounces:!0})};</script></body></html>

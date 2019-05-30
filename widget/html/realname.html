@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>Document</title></head><body><script src="../script/rem.js"></script><script src="../script/api.js"></script><script src="../script/aui-slide.js"></script><script src="../script/vue.js"></script><script src="../script/swiper.min.js"></script><script src="../script/coi.js"></script><link rel="stylesheet" href="../css/style.css"/><link rel="stylesheet" href="../css/api.css"/><link rel="stylesheet" href="../css/aui-slide.css"/><link rel="stylesheet" href="../css/swiper.min.css"/><style>body,html{min-height:100%;background:#e5e5e5}.user-info-list{width:100%;padding-top:.1rem}.user-info-list li{min-height:1rem;font-size:.3rem;color:#666;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;padding:.2rem;border-bottom:1px solid #eee;background:#fff}.user-info-list .right{width:50%;display:flex;justify-content:flex-end;align-items:center}.user-info-list input{text-align:right;min-height:.95rem;width:100%;display:block;margin-right:10px;outline:0}input[type=submit]{font-size:.36rem;color:#fff;width:5.3rem;height:1rem;background:linear-gradient(134deg,#ec008c 0%,#fc6767 100%);border-radius:.5rem;margin:.5rem auto .2rem;display:block;outline:0}</style><div id="vm"><div class="header-o"> <div class="l" onclick="closeWin()" tapmode="tapmode"><img src="../image/jt.png"/></div><h1 id="headerTitle">实名认证</h1></div><div class="header-bottom"></div><script>function closeWin(){
+    api.closeWin();
+}
+
+function openWin(url){
+    api.openWin({
+        name: 'test',
+        url: url,
+        bgColor:'#ffffff',
+        pageParam: {
+            name: 'test'
+        }
+    });
+}</script><div class="realname"><form @submit.prevent="submit()"><ul class="user-info-list"><li><label> 真实姓名</label><div class="right"><input type="text" v-model="infoData.name"/></div></li><li><label> 身份证号</label><div class="right"><input type="text" v-model="infoData.idcard"/></div></li></ul><input type="submit" value="提交"/></form></div></div><script>apiready=function(){$api.fixStatusBar($api.dom(".header-o"));new Vue({el:"#vm",data:{infoData:{name:"",idcard:""}},created:function(){this.getData()},methods:{getData:function(){var i=this;$api.loading("正在加载..."),$api.ajax("/api/user/cash",{},function(a){200==a.code&&(i.infoData=a.data.auth),$api.closeing()})},submit:function(){var a={name:"真实姓名",idcard:"身份证号"};for(var i in a)if(!this.infoData[i])return api.toast({msg:a[i]+"不能为空"}),!1;$api.loading("正在提交..."),$api.ajax("/api/user/identification",this.infoData,function(a){api.toast({msg:a.msg}),$api.closeing(),200==a.code&&setTimeout(function(){api.closeWin()},1e3)})}}})},window.owin=$api.owin;</script></body></html>
