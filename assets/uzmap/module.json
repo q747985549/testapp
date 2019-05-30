@@ -1,0 +1,25 @@
+{modules:[{
+	name:'aliPayPlus',
+	class:'com.apicloud.alipayplus.UzAliPayPlus'
+}
+,{
+			name:'citySelector',
+			class:'com.uzmap.pkg.uzmodules.uzCitySelector.UzCitySelector'
+}
+,{
+		   name:'clipBoard',
+		   class:'com.uzmap.pkg.uzmodules.uzclipboard.UzClipBoard'
+}
+,{
+    name:'mam',
+    class:'com.uzmap.pkg.uzmodules.uzmam.UzMAM'
+}
+,{
+		    name:'photoBrowser',
+			class:'com.uzmap.pkg.uzmodules.photoBrowser.PhotoBrowser'
+}
+,{
+		    name:'wxPay',
+		    class:'com.uzmap.pkg.uzmodules.uzWxPay.UzWxPay'
+}
+]}

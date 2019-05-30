@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>Document</title></head><body><script src="../script/rem.js"></script><script src="../script/api.js"></script><script src="../script/aui-slide.js"></script><script src="../script/vue.js"></script><script src="../script/swiper.min.js"></script><script src="../script/coi.js"></script><link rel="stylesheet" href="../css/style.css"/><link rel="stylesheet" href="../css/api.css"/><link rel="stylesheet" href="../css/aui-slide.css"/><link rel="stylesheet" href="../css/swiper.min.css"/><style>.buy{padding:0 .3rem}.buy,.buy ul{width:100%}.buy ul li{width:100%;padding:.3rem 0;border-bottom:1px solid #e7e7e7}.buy ul li .top{margin-bottom:.1rem}.buy ul li .top h3{font-size:.26rem;color:#3c3c3c}.buy ul li .top h2{font-size:.3rem;color:#f74573}.buy ul li .bottom,.buy ul li .top{width:100%;display:flex;align-items:center;justify-content:space-between}.buy ul li .bottom span{font-size:.24rem;color:#999}</style><div id="vm"><div class="header-o"> <div class="l" onclick="closeWin()" tapmode="tapmode"><img src="../image/jt.png"/></div><h1 id="headerTitle">提现明细</h1></div><div class="header-bottom"></div><script>function closeWin(){
+    api.closeWin();
+}
+
+function openWin(url){
+    api.openWin({
+        name: 'test',
+        url: url,
+        bgColor:'#ffffff',
+        pageParam: {
+            name: 'test'
+        }
+    });
+}</script><div class="buy"><ul><li v-for="item in recordList"><div class="top"><h3>卡号：{{item.account}}</h3><h2>+{{item.price}}</h2></div><div class="bottom"><span>{{item.created_time}}</span><span v-if="item.is_verify==1">待审核</span><span v-if="item.is_verify==2">通过</span><span v-if="item.is_verify==3">信息错误</span></div></li></ul></div></div><script>apiready=function(){$api.fixStatusBar($api.dom(".header-o"));new Vue({el:"#vm",data:{recordList:[]},created:function(){this.getData()},methods:{getData:function(){var i=this;$api.ajax("/api/user/cashRecord",{},function(a){200==a.code&&(i.recordList=a.data)})}}})},window.owin=$api.owin;</script></body></html>

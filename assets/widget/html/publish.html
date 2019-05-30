@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>Document</title></head><body><script src="../script/rem.js"></script><script src="../script/api.js"></script><script src="../script/aui-slide.js"></script><script src="../script/vue.js"></script><script src="../script/swiper.min.js"></script><script src="../script/coi.js"></script><link rel="stylesheet" href="../css/style.css"/><link rel="stylesheet" href="../css/api.css"/><link rel="stylesheet" href="../css/aui-slide.css"/><link rel="stylesheet" href="../css/swiper.min.css"/><style>.publicationBackground{width:100%;padding:.3rem}.publicationBackground .publication-evaluation{width:100%;height:2.96rem;background:#eaeaea;border-radius:.02rem;font-size:.28rem;color:#999;line-height:.4rem;padding:.2rem;resize:none}.publicationBackground input[type=submit]{width:5.3rem;height:1rem;background:linear-gradient(134deg,#ec008c 0%,#fc6767 100%);border-radius:.5rem;font-size:.3rem;color:#fff;margin:.3rem auto;display:block;outline:0}</style><div id="vm"><div class="header-o"> <div class="l" onclick="closeWin()" tapmode="tapmode"><img src="../image/jt.png"/></div><h1 id="headerTitle">发表评价</h1></div><div class="header-bottom"></div><script>function closeWin(){
+    api.closeWin();
+}
+
+function openWin(url){
+    api.openWin({
+        name: 'test',
+        url: url,
+        bgColor:'#ffffff',
+        pageParam: {
+            name: 'test'
+        }
+    });
+}</script><div class="publicationBackground"><form @submit.prevent="submit()"><textarea class="publication-evaluation" v-model="content" placeholder="请发表对此物品的评价"></textarea><input type="submit" value="发表"/></form></div></div><script>apiready=function(){$api.fixStatusBar($api.dom(".header-o"));new Vue({el:"#vm",data:{content:""},created:function(){},methods:{submit:function(){$api.ajax("/api/user/comment",{og_id:api.pageParam.params.id,content:this.content},function(a){api.toast({msg:a.msg}),200==a.code&&setTimeout(function(){api.closeWin()},1e3)})}}})},window.owin=$api.owin;</script></body></html>

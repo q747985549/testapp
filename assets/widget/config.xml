@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><widget id="A6008469189916" security="false" version="0.0.1">
+
+    <name>吉优品</name>
+
+    <description>
+
+        Example For APICloud.
+
+    </description>
+
+    <author email="developer@apicloud.com" href="http://www.apicloud.com">
+        Developer
+    </author>
+
+	<feature name="aliPayPlus">
+		<param name="urlScheme" value="AliPayPlusA6008469189916"/>
+	</feature>
+
+	<feature name="wxPay">
+    	<param name="urlScheme" value="wx95658a4a918a31ec"/>
+    	<param name="apiKey" value="wx95658a4a918a31ec"/>
+    	<param name="apiSecret" value="d87bb9969a7bf8c3545abbe20adc2280"/>
+  	</feature>
+
+    <content src="index.html"/>
+
+    <access origin="*"/>
+
+	<preference name="appCertificateVerify" value="false"/>
+
+    <preference name="pageBounce" value="false"/>
+
+	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
+
+	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
+
+	<preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>
+
+	<preference name="hScrollBarEnabled" value="false"/>
+
+	<preference name="vScrollBarEnabled" value="false"/>
+
+	<preference name="autoLaunch" value="true"/>
+
+	<preference name="fullScreen" value="false"/>
+
+	<preference name="autoUpdate" value="true"/>
+
+	<preference name="smartUpdate" value="false"/>
+
+	<preference name="debug" value="false"/>
+
+	<preference name="statusBarAppearance" value="true"/>
+
+	<permission name="readPhoneState"/>
+
+	<permission name="camera"/>
+
+	<permission name="record"/>
+
+	<permission name="location"/>
+
+	<permission name="fileSystem"/>
+
+	<permission name="internet"/>
+
+	<permission name="bootCompleted"/>
+
+	<permission name="hardware"/>
+
+</widget>
